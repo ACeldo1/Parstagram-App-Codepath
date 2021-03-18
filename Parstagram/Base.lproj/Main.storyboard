@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o4G-L9-cDS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -138,6 +138,64 @@
                     <view key="view" contentMode="scaleToFill" id="Wdl-aA-0Fn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bKb-zu-Ixd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="520" id="tzP-k3-DVq" customClass="PostCell" customModule="Parstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="520"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tzP-k3-DVq" id="bUU-gO-F2O">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="520"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tvr-0i-WWL">
+                                                    <rect key="frame" x="8" y="8" width="398" height="475"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Tvr-0i-WWL" secondAttribute="height" multiplier="398:475" id="SL4-tx-4e2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-3u-z2b">
+                                                    <rect key="frame" x="8" y="491" width="65" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20.5" id="8Lh-Ca-60k"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos are great" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQo-P6-akp">
+                                                    <rect key="frame" x="81" y="491.5" width="325" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7h1-3u-z2b" firstAttribute="top" secondItem="Tvr-0i-WWL" secondAttribute="bottom" constant="8" id="Lfp-18-Ghw"/>
+                                                <constraint firstAttribute="trailing" secondItem="LQo-P6-akp" secondAttribute="trailing" constant="8" id="NCv-ho-gPr"/>
+                                                <constraint firstItem="Tvr-0i-WWL" firstAttribute="leading" secondItem="bUU-gO-F2O" secondAttribute="leading" constant="8" id="Nf9-35-FQc"/>
+                                                <constraint firstItem="Tvr-0i-WWL" firstAttribute="top" secondItem="bUU-gO-F2O" secondAttribute="top" constant="8" id="RhW-Qo-6Nf"/>
+                                                <constraint firstAttribute="bottom" secondItem="LQo-P6-akp" secondAttribute="bottom" constant="8" id="Sgw-4A-hfh"/>
+                                                <constraint firstItem="7h1-3u-z2b" firstAttribute="centerY" secondItem="LQo-P6-akp" secondAttribute="centerY" id="UXb-09-NHL"/>
+                                                <constraint firstItem="LQo-P6-akp" firstAttribute="leading" secondItem="7h1-3u-z2b" secondAttribute="trailing" constant="8" id="ZgX-rG-QKs"/>
+                                                <constraint firstItem="LQo-P6-akp" firstAttribute="top" secondItem="Tvr-0i-WWL" secondAttribute="bottom" constant="8.5" id="djf-iJ-3FF"/>
+                                                <constraint firstItem="7h1-3u-z2b" firstAttribute="leading" secondItem="bUU-gO-F2O" secondAttribute="leading" constant="8" id="dn5-nG-ZDs"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tvr-0i-WWL" secondAttribute="trailing" constant="8" id="qVN-70-jlF"/>
+                                                <constraint firstItem="LQo-P6-akp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Tvr-0i-WWL" secondAttribute="bottom" constant="8" id="rtG-uI-vaw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="LQo-P6-akp" id="4n0-Yl-bQY"/>
+                                            <outlet property="photoView" destination="Tvr-0i-WWL" id="RE1-c1-hHx"/>
+                                            <outlet property="usernameLabel" destination="7h1-3u-z2b" id="e6J-ko-l2F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ck2-nH-nQp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -149,6 +207,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="bKb-zu-Ixd" id="lbt-d3-DHd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYp-At-Ruj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

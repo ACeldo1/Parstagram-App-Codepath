@@ -22,8 +22,9 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func onSubmitButton(_ sender: Any) {
         
-        let posts = PFObject(className: "Posts")
+        let posts = PFObject(className: "Posts2")
         
+        posts["author"] = PFUser.current()!
         posts["caption"] = commentField.text!
         posts["weight"] = PFUser.current()!
         
