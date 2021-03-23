@@ -12,16 +12,19 @@ import Parse
 
 class LoginViewController: UIViewController {
 
+    // MARK: - Initializing variables
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    
+    //MARK: - IBActions
     @IBAction func onSignIn(_ sender: Any) {
     
         let username = usernameField.text!

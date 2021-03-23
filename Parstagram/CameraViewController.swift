@@ -11,36 +11,40 @@ import Parse
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
+    //MARK: - Initializing Variables
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentField: UITextField!
     
+    //MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - IBActions
     @IBAction func onSubmitButton(_ sender: Any) {
         
         let posts = PFObject(className: "Posts2")
         
         posts["author"] = PFUser.current()!
         posts["caption"] = commentField.text!
-        posts["weight"] = PFUser.current()!
         
         let imageData = imageView.image!.pngData()
-        let file = PFFileObject(data: imageData!)
+        let file = PFFileObject(name: "image.png", data: imageData!)
         
         posts["image"] = file
         
         posts.saveInBackground { (success, error) in
             if success {
+                self.dismiss(animated: true, completion: nil)
                 print("saved!")
             } else {
                 print("error!")
             }
         }
         
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onCameraButton(_ sender: Any) {
@@ -49,7 +53,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         picker.allowsEditing = true
      
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            picker.sourceType = .photoLibrary
+            picker.sourceType = .camera
         } else {
             picker.sourceType = .photoLibrary
         }
@@ -58,15 +62,16 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
     }
     
+    //MARK: - Other Functions
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
         let size = CGSize(width: 300, height: 300)
-        let scaledImage = image.af.imageScaled(to: size)
+        let scaledImage = image.af.imageAspectScaled(toFill: size)
         
         imageView.image = scaledImage
         
         dismiss(animated: true, completion: nil)
-        
     }
     /*
     // MARK: - Navigation
